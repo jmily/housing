@@ -74,5 +74,38 @@ class PropertyType
     {
         return $this->name;
     }
-}
 
+    /**
+     * Add property
+     *
+     * @param \AppBundle\Entity\Property $property
+     *
+     * @return PropertyType
+     */
+    public function addProperty(\AppBundle\Entity\Property $property)
+    {
+        $this->properties[] = $property;
+
+        return $this;
+    }
+
+    /**
+     * Remove property
+     *
+     * @param \AppBundle\Entity\Property $property
+     */
+    public function removeProperty(\AppBundle\Entity\Property $property)
+    {
+        $this->properties->removeElement($property);
+    }
+
+    /**
+     * Get properties
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getProperties()
+    {
+        return $this->properties;
+    }
+}

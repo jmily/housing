@@ -131,5 +131,28 @@ class Area
     {
         return $this->length;
     }
-}
 
+    /**
+     * Set property
+     *
+     * @param \AppBundle\Entity\Property $property
+     *
+     * @return Area
+     */
+    public function setProperty(\AppBundle\Entity\Property $property = null)
+    {
+        $this->property = $property;
+
+        return $this;
+    }
+
+    /**
+     * Get property
+     *
+     * @return \AppBundle\Entity\Property
+     */
+    public function getProperty()
+    {
+        return $this->property;
+    }
+}

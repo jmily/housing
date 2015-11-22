@@ -50,12 +50,13 @@ class Property
      */
     private $numberOfBathRoom;
 
+
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="numOfGarage", type="integer")
+     * @ORM\Column(name="comment", type="text")
      */
-    private $numOfGarage;
+    private $comment;
 
 
     /**
@@ -65,7 +66,7 @@ class Property
     protected $propertyType;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Area", inversedBy="properties")
+     * @ORM\ManyToOne(targetEntity="Suburb", inversedBy="properties")
      * @ORM\JoinColumn(name="suburb_id", referencedColumnName="id")
      */
     protected $suburb;
@@ -187,28 +188,110 @@ class Property
         return $this->numberOfBathRoom;
     }
 
+
     /**
-     * Set numOfGarage
+     * Set propertyType
      *
-     * @param integer $numOfGarage
+     * @param \AppBundle\Entity\PropertyType $propertyType
      *
      * @return Property
      */
-    public function setNumOfGarage($numOfGarage)
+    public function setPropertyType(\AppBundle\Entity\PropertyType $propertyType = null)
     {
-        $this->numOfGarage = $numOfGarage;
+        $this->propertyType = $propertyType;
 
         return $this;
     }
 
     /**
-     * Get numOfGarage
+     * Get propertyType
      *
-     * @return int
+     * @return \AppBundle\Entity\PropertyType
      */
-    public function getNumOfGarage()
+    public function getPropertyType()
     {
-        return $this->numOfGarage;
+        return $this->propertyType;
+    }
+
+    /**
+     * Set suburb
+     *
+     * @param \AppBundle\Entity\Suburb $suburb
+     *
+     * @return Property
+     */
+    public function setSuburb(\AppBundle\Entity\Suburb $suburb = null)
+    {
+        $this->suburb = $suburb;
+
+        return $this;
+    }
+
+    /**
+     * Get suburb
+     *
+     * @return \AppBundle\Entity\Suburb
+     */
+    public function getSuburb()
+    {
+        return $this->suburb;
+    }
+
+    /**
+     * Add area
+     *
+     * @param \AppBundle\Entity\Area $area
+     *
+     * @return Property
+     */
+    public function addArea(\AppBundle\Entity\Area $area)
+    {
+        $this->areas[] = $area;
+
+        return $this;
+    }
+
+    /**
+     * Remove area
+     *
+     * @param \AppBundle\Entity\Area $area
+     */
+    public function removeArea(\AppBundle\Entity\Area $area)
+    {
+        $this->areas->removeElement($area);
+    }
+
+    /**
+     * Get areas
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAreas()
+    {
+        return $this->areas;
+    }
+
+    /**
+     * Set comment
+     *
+     * @param string $comment
+     *
+     * @return Property
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Get comment
+     *
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
     }
 }
-

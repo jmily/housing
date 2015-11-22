@@ -11,12 +11,6 @@ body, html {
     display: none;
 }
 
-table th
-{
-    text-align:center;
-}
-
-
 i
 {
     width:20px;
@@ -65,10 +59,6 @@ i
     border-color: #333333 !important;
 }
 
-.btn
-{
-    margin-top:5px;
-}
 
 .btn-sm
 {
@@ -264,28 +254,10 @@ body {
     color:green;
 }
 
-.nav-social
+
+
+
+.property-table td
 {
-
-    padding: 5px 50px 5px 0;
-}
-
-.nav-social i
-{
-    color:#ffffff;
-    padding-right: 20px;
-}
-
-.nav-social i:hover
-{
-    color:#979DA7;
-}
-
-.student-tutorial-option{
-    margin-top: 7px;
-}
-
-#new-student-tutorial
-{
-    margin-left:5px;
+    font-size:16px;
 }

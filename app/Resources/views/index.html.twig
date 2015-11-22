@@ -1,1 +1,31 @@
 {% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="page-header">
+    <span><h3><i class="fa fa-tags"></i>Property Information</h3></span>
+    </div>
+
+    <div class="col-xs-12 property-table">
+        <table class="table">
+            <thead>
+            <th>Suburb</th>
+            <th>Type</th>
+            <th>Land Size <small>(square meters)</small></th>
+            <th>Sold price</th>
+            <th>Comment</th>
+            <th>Detail</th>
+            </thead>
+         {% for property in properties %}
+             <tr>
+                 <td>{{ property.suburb.name }}</td>
+                 <td>{{ property.propertyType.name }}</td>
+                 <td>{{ property.landSize }}</td>
+                 <td>{{ property.soldPrice|number_format }}</td>
+                 <td>{{ property.comment }}</td>
+                 <td><button class="btn btn-primary btn-sm">More</button></td>
+             </tr>
+         {% endfor %}
+
+        </table>
+    </div>
+{% endblock %}

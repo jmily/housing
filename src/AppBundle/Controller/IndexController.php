@@ -13,6 +13,9 @@ class IndexController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('index.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $properties = $em->getRepository('AppBundle:Property')->findAll();
+
+        return $this->render('index.html.twig', array('properties'=>$properties));
     }
 }
