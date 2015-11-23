@@ -257,7 +257,20 @@ body {
 
 
 
-.property-table td
+.property-table td, .area-table td
 {
     font-size:16px;
+    border-top:none !important;
+}
+
+.area-table td
+{
+    color: #333;
+    font-weight:500;
+    font-size: 20px;
+}
+
+.table-striped > tbody > tr:nth-of-type(2n+1)
+{
+    background-color:#eeeeee;
 }

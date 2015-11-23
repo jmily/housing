@@ -1,0 +1,24 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <div class="page-header">
+        <span><h3><i class="fa fa-home"></i>Property Detail</h3></span>
+    </div>
+
+
+        <div class="jumbotron text-center" id="property-detail">
+            <h1>{{ property.landSize }} M<sup>2</sup> {{ property.propertyType.name }}</h1>
+            <h2>Located at {{ property.suburb.name }}</h2>
+            <h2>Sold for ${{ property.soldPrice|number_format }}</h2>
+        </div>
+
+    <table class="area-table table table-striped">
+    {% for area in property.areas %}
+        <tr>
+            <td class="area-text">{{ area.width }}M X {{ area.length }}M = {{ area.width*area.length|number_format }} M<sup>2</sup></td>
+            <td class="area-text">{{ area.name|capitalize }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+{% endblock %}
