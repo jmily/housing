@@ -10,7 +10,7 @@
             <thead>
             <th>Suburb</th>
             <th>Type</th>
-            <th>Land Size <small>(square meters)</small></th>
+            <th>Land Size <small> (M<sup>2</sup>)</small></th>
             <th>Sold price</th>
             <th>Comment</th>
             <th>Detail</th>
@@ -22,7 +22,8 @@
                  <td>{{ property.landSize }}</td>
                  <td>{{ property.soldPrice|number_format }}</td>
                  <td>{{ property.comment }}</td>
-                 <td><button class="btn btn-primary btn-sm">More</button></td>
+                 <td>
+                     <form action="{{ path('property',{'id': property.id}) }}" method="get"><button class="btn btn-primary btn-sm">More</button></form></td>
              </tr>
          {% endfor %}
 

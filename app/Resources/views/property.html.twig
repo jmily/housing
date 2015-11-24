@@ -3,6 +3,7 @@
 {% block content %}
     <div class="page-header">
         <span><h3><i class="fa fa-home"></i>Property Detail</h3></span>
+        <p><a href="{{ path('homepage') }}">< back to home</a></p>
     </div>
 
 
@@ -20,5 +21,9 @@
         </tr>
     {% endfor %}
     </table>
+
+    <div class="">
+        <p><a href="{{ path('homepage') }}">< back to home</a></p>
+    </div>
 
 {% endblock %}

@@ -24,7 +24,6 @@ class PropertyController extends Controller
         else
         {
             return $this->render('property.html.twig', array('property'=>$property));
-
         }
     }
 }
