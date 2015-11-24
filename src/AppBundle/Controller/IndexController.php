@@ -15,7 +15,15 @@ class IndexController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $properties = $em->getRepository('AppBundle:Property')->findAll();
+        $suburbs = $em->getRepository('AppBundle:Suburb')->findAll();
+        $propertyTypes = $em->getRepository('AppBundle:PropertyType')->findAll();
 
-        return $this->render('index.html.twig', array('properties'=>$properties));
+        return $this->render('index.html.twig',
+                                array(
+                                        'properties'=>$properties,
+                                        'suburbs' => $suburbs,
+                                        'propertyTypes' => $propertyTypes
+                                     )
+        );
     }
 }

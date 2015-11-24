@@ -3,6 +3,7 @@
 {% block content %}
     <div class="page-header">
     <span><h3><i class="fa fa-tags"></i>Property Information</h3></span>
+    <span><button class="btn btn-primary" data-toggle="modal" data-target="#myModal">Add a property</button></span>
     </div>
 
     <div class="col-xs-12 property-table">
@@ -28,5 +29,60 @@
          {% endfor %}
 
         </table>
+    </div>
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">New Property</h4>
+                </div>
+                <form action="" method="post">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="suburb">Suburb</label>
+                            <select name="suburb" id="suburb">
+                                <option value="">Please choose</option>
+                                {% for suburb in suburbs %}
+                                    <option value="{{ suburb.id }}">{{ suburb.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="property-type">Property Type</label>
+                            <select name="propertyType" id="property-type">
+                                <option value="">Please choose</option>
+                                {% for propertyType in propertyTypes %}
+                                    <option value="{{ propertyType.id }}">{{ propertyType.name|capitalize }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="landSize" id="property-landsize" placeholder="Land Size">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="soldPrice" id="property-sold-price" placeholder="Sold Price">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="numberOfBathroom" id="property-number-bathroom" placeholder="Number of bathroom">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="comment" id="property-comment" placeholder="comment">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
 {% endblock %}
